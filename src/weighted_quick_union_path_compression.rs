@@ -103,6 +103,19 @@ mod tests {
     }
 
     #[test]
+    fn union_1_2_2_3_3_4_5_6_6_7_7_8_5_1() {
+        let mut answer = WeightedQuickUnionPathCompression::new(10);
+        answer.union(1 as i64, 2 as i64);
+        answer.union(2 as i64, 3 as i64);
+        answer.union(3 as i64, 4 as i64);
+        answer.union(5 as i64, 6 as i64);
+        answer.union(6 as i64, 7 as i64);
+        answer.union(7 as i64, 8 as i64);
+        answer.union(5 as i64, 1 as i64);
+        assert_eq!(answer.internal, vec![0, 2, 4, 4, 8, 6, 8, 8, 8, 9])
+    }
+
+    #[test]
     fn connected_8_9() {
         let mut answer = WeightedQuickUnionPathCompression::new(10);
         answer.union(1 as i64, 2 as i64);
