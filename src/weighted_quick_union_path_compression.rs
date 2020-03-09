@@ -17,10 +17,10 @@ impl WeightedQuickUnionPathCompression {
 
         if self.sizes[start_root as usize] > self.sizes[end_root as usize] {
             self.internal[end_root as usize] = start_root;
-            self.sizes[end_root as usize] += 1;
+            self.sizes[start_root as usize] += 1;
         } else {
             self.internal[start_root as usize] = end_root;
-            self.sizes[start_root as usize] += 1;
+            self.sizes[end_root as usize] += 1;
         }
     }
 
